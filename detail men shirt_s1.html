@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Men Shirt - Christian Wijaya</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/detail bag.css">
+</head>
+<body>
+    <header id="header">
+        <!-- ...header sama seperti file lain... -->
+        <div class="header-row">
+            <div class="header-icon left">
+                <a href="#">
+                    <img src="assets/barang/k1.png" alt="Search" class="header-svg" />
+                </a>
+            </div>
+            <a href="home.html" id="logo">Christian Wijaya</a>
+            <div class="header-icon profile">
+                <a href="profile.html">
+                    <img src="assets/barang/k2.png" alt="Profile" class="header-svg" />
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Men bag.html">Men's Bag</a></li>
+                <li><a href="Women bag.html">Woman's Bag</a></li>
+                <li><a href="Men shirts.html">Men's Shirts</a></li>
+                <li><a href="Women shirts.html">Woman's Shirts</a></li>
+                <li><a href="events.html">Event's</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="detail-bag-main">
+        <section id="detail-bag-content">
+            <div id="detail-bag-image-container">
+                <img src="assets/men shirt/s1.png" alt="Men Shirt 1" id="detail-bag-image">
+            </div>
+            <div id="detail-bag-info">
+                <h1 id="detail-bag-title">Men Shirt 1</h1>
+                <h2 id="detail-bag-price">$ 120</h2>
+                <p id="detail-bag-desc">
+                    Classic men's shirt made from premium cotton for all-day comfort and style. Perfect for both formal and casual occasions.
+                </p>
+                <div id="detail-bag-actions">
+                    <a href="#" class="btn" id="add-to-card-btn">add to card</a>
+                    <a href="#" class="btn" id="add-to-bag-btn">add to bag</a>
+                </div>
+            </div>
+        </section>
+        <!-- ...popup add to cart, add to bag, success, thank you... -->
+        <div id="add-to-cart-popup" class="popup hidden">
+            <div class="popup-content scrollable">
+                <h2>Order Summary - Men Shirt 1</h2>
+                <p>Review your order before proceeding to checkout.</p>
+                <div id="cart-details">
+                    <p><strong>Item:</strong> Men Shirt 1</p>
+                    <p><strong>Price:</strong> $120</p>
+                    <p><strong>Quantity:</strong> <input type="number" id="cart-quantity" value="1" min="1"></p>
+                    <p><strong>Total:</strong> <span id="cart-total">$120</span></p>
+                </div>
+                <button type="button" id="order-btn">Order</button>
+                <button id="close-cart-popup">Close</button>
+            </div>
+        </div>
+        <div id="add-to-bag-popup" class="popup hidden">
+            <div class="popup-content scrollable">
+                <h2>Add to Bag - Men Shirt 1</h2>
+                <p>Review your item before adding it to your bag.</p>
+                <div id="bag-details">
+                    <p><strong>Item:</strong> Men Shirt 1</p>
+                    <p><strong>Price:</strong> $120</p>
+                    <p><strong>Quantity:</strong> <input type="number" id="bag-quantity" value="1" min="1"></p>
+                    <p><strong>Total:</strong> <span id="bag-total">$120</span></p>
+                </div>
+                <button type="button" id="confirm-bag-btn">Add to Bag</button>
+                <button id="close-bag-popup">Close</button>
+            </div>
+        </div>
+        <div id="success-bag-popup" class="popup hidden">
+            <div class="popup-content">
+                <h2>Success!</h2>
+                <p>The item has been successfully added to your bag.</p>
+                <button id="close-success-bag-popup">Close</button>
+            </div>
+        </div>
+        <div id="thank-you-popup" class="popup hidden">
+            <div class="popup-content">
+                <h2>Thank You!</h2>
+                <p>Thank you for ordering. Your order has been successfully placed.</p>
+                <button id="return-home-btn">Return to Home</button>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <!-- ...footer sama seperti file lain... -->
+        <div class="footer-columns">
+            <!-- ...footer columns... -->
+        </div>
+        <p>&copy; 2025 Christian Wijaya. All rights reserved.</p>
+    </footer>
+    <script src="js/detail-bag.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Event's - Christian Wijaya</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/event.css">
+    <script src="js/event.js" defer></script>
+</head>
+<body>
+    <header id="header" class="fade-in">
+        <div class="header-row">
+            <div class="header-icon left">
+                <a href="#">
+                    <img src="assets/barang/k1.png" alt="Search" class="header-svg" />
+                </a>
+            </div>
+            <a href="home.html" id="logo">Christian Wijaya</a>
+            <div class="header-icon profile">
+                <a href="profile.html">
+                    <img src="assets/barang/k2.png" alt="Profile" class="header-svg" />
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Men bag.html">Men's Bag</a></li>
+                <li><a href="Women bag.html">Woman's Bag</a></li>
+                <li><a href="Men shirts.html">Men's Shirts</a></li>
+                <li><a href="Women shirts.html">Woman's Shirts</a></li>
+                <li><a href="events.html">Event's</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="event-main" class="fade-in">
+        <section id="event-title-section">
+            <h1 id="event-title">Our Event’s</h1>
+        </section>
+        <section id="event-content">
+            <div id="event-image-container">
+                <img src="assets/event/t1.png" alt="Event Model" id="event-main-image">
+            </div>
+            <div id="event-info">
+                <h2 id="event-info-title">Search for Model’s</h2>
+                <div id="event-info-desc">
+                    <p>
+                        Become the Face of Timeless Elegance<br>
+                        We’re looking for individuals who embody confidence, grace, and authenticity. If you believe in the art of fashion and wish to represent a brand rooted in luxury and purpose, we invite you to join us.<br>
+                        Apply now and take your place in our upcoming event campaign.
+                    </p>
+                </div>
+                <a href="#" id="event-register-btn">Regist Here</a>
+            </div>
+        </section>
+    </main>
+    <div id="registration-popup" class="popup hidden">
+        <div class="popup-content scrollable">
+            <h2>Christian Wijaya</h2>
+            <p>Please enter your email address to apply as a model or create your profile.</p>
+            <form id="registration-form">
+                <label for="full-name">Full Name:</label>
+                <input type="text" id="full-name" name="full-name" placeholder="Enter your full name">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <label for="phone-number">Phone Number:</label>
+                <input type="text" id="phone-number" name="phone-number" placeholder="Enter your phone number">
+                <label for="birth-date">Birth Date:</label>
+                <input type="date" id="birth-date" name="birth-date">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender">
+                    <option value="">Select your gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="terms">
+                    <input type="checkbox" id="terms" name="terms">
+                    <label for="terms">I agree to the Terms of Service and consent to the use of my data for model application purposes, as described in the Privacy Policy.</label>
+                </div>
+                <button type="button" id="submit-btn">Submit</button>
+            </form>
+            <button id="close-popup">Close</button>
+        </div>
+    </div>
+    <div id="thank-you-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Thank You!</h2>
+            <p>Your registration has been successfully submitted. We will contact you soon.</p>
+            <button id="return-home-btn">Return to Home</button>
+        </div>
+    </div>
+    <footer id="footer" class="fade-in">
+        <div class="footer-columns">
+            <div>
+                <h3>Subscribe to our newsletter</h3>
+                <p>Receive our newsletter and discover our world, collections, and latest news from us.</p>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="about.html">Contacts</a></li>
+                    <li><a href="about.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">Christian Wijaya Stores</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Textile</a></li>
+                    <li><a href="#">Interiors</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">All services</a></li>
+                    <li><a href="#">Return & exchange</a></li>
+                    <li><a href="#">Delivery & shipping</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Legal & Cookies</h3>
+                <ul>
+                    <li><a href="#">Compliance</a></li>
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Privacy & Cookie notice</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Christian Wijaya. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/home.css">
+    <title>Home - Christian Wijaya</title>
+</head>
+<body>
+    <header id="header" class="fade-in">
+        <div class="header-row">
+            <div class="header-icon left">
+                <a href="#">
+                    <img src="assets/barang/k1.png" alt="Search" class="header-svg" />
+                </a>
+            </div>
+            <a href="home.html" id="logo">Christian Wijaya</a>
+            <div class="header-icon profile">
+                <a href="profile.html">
+                    <img src="assets/barang/k2.png" alt="Profile" class="header-svg" />
+                </a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Men bag.html">Men's Bag</a></li>
+                <li><a href="Women bag.html">Woman's Bag</a></li>
+                <li><a href="Men shirts.html">Men's Shirts</a></li>
+                <li><a href="Women shirts.html">Woman's Shirts</a></li>
+                <li><a href="events.html">Event's</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="main-content" class="fade-in">
+        <section id="hero">
+            <div id="hero-image">
+                <img src="assets/home/a1.png" alt="Hero Image">
+            </div>
+            <div id="hero-text">
+                <h2>Honoring Timeless Elegance Since the Beginning</h2>
+                <p>Christian Wijaya honors every woman’s timeless elegance — powerful, poised, and unforgettable.</p>
+                <a href="#collection" class="btn">Shop Now</a>
+            </div>
+        </section>
+        <section id="collection">
+            <h2>Christian Wijaya Collection</h2>
+            <div class="collection-grid">
+                <img src="assets/home/a2.png" alt="Collection 1" id="collection-img-1" style="cursor:pointer;">
+                <img src="assets/home/a3.png" alt="Collection 2" id="collection-img-2" style="cursor:pointer;">
+                <img src="assets/home/a4.png" alt="Collection 3" id="collection-img-3" style="cursor:pointer;">
+            </div>
+        </section>
+    </main>
+    <div id="profile-popup" class="popup hidden">
+        <div class="popup-content scrollable">
+            <h2>Christian Wijaya</h2>
+            <p>Login or Register to access your account.</p>
+            <form id="profile-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+                <div class="terms">
+                    <input type="checkbox" id="remember-me" name="remember-me">
+                    <label for="remember-me">Remember Me</label>
+                </div>
+                <button type="button" id="login-btn">Login</button>
+                <p>Don't have an account? <a href="#" id="register-link">Register here</a></p>
+            </form>
+            <button id="close-profile-popup">Close</button>
+        </div>
+    </div>
+    <div id="thank-you-popup" class="popup hidden">
+        <div class="popup-content">
+            <h2>Thank You!</h2>
+            <p>Your account has been successfully created. Welcome to Christian Wijaya!</p>
+            <button id="return-home-btn">Return to Home</button>
+        </div>
+    </div>
+    <footer id="footer" class="fade-in">
+        <div class="footer-columns">
+            <div>
+                <h3>Subscribe to our newsletter</h3>
+                <p>Receive our newsletter and discover our world, collections, and latest news from us.</p>
+            </div>
+            <div>
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="about.html">Contacts</a></li>
+                    <li><a href="about.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">Christian Wijaya Stores</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Textile</a></li>
+                    <li><a href="#">Interiors</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">All services</a></li>
+                    <li><a href="#">Return & exchange</a></li>
+                    <li><a href="#">Delivery & shipping</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3>Legal & Cookies</h3>
+                <ul>
+                    <li><a href="#">Compliance</a></li>
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Privacy & Cookie notice</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Christian Wijaya. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var shopBtn = document.querySelector('.btn[href="#collection"]');
+            if (shopBtn) {
+                shopBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector('#collection').scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                });
+            }
+            var summerImg = document.getElementById('collection-img-1');
+            if(summerImg) {
+                summerImg.addEventListener('click', function() {
+                    window.location.href = 'summer.html';
+                });
+            }
+            var summer2Img = document.getElementById('collection-img-2');
+            if(summer2Img) {
+                summer2Img.addEventListener('click', function() {
+                    window.location.href = 'summer 2.html';
+                });
+            }
+            var summer3Img = document.getElementById('collection-img-3');
+            if(summer3Img) {
+                summer3Img.addEventListener('click', function() {
+                    window.location.href = 'summer 3.html';
+                });
+            }
+            document.querySelectorAll('.fade-in').forEach(function(element) {
+                element.classList.add('active');
+            });
+        });
+    </script>
+    <script src="js/home.js" defer></script>
+</body>
+</html>
