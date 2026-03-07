@@ -1,0 +1,346 @@
+#detail-bag-main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 3vw;
+    background: #fff;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+}
+
+#detail-bag-main.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#detail-bag-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5vw;
+    margin-top: 5vw;
+    margin-bottom: 4vw;
+}
+
+#detail-bag-image-container {
+    flex: 1 1 340px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+#detail-bag-image {
+    width: 100%;
+    max-width: 28vw;
+    min-width: 180px;
+    object-fit: contain;
+    background: #eee;
+    border: none;
+    box-shadow: 0 2px 16px rgba(157,82,72,0.10);
+    transition: box-shadow 0.3s;
+    height: auto;
+}
+
+#detail-bag-image:hover {
+    box-shadow: 0 8px 32px rgba(157,82,72,0.18);
+}
+
+#detail-bag-info {
+    flex: 1 1 320px;
+    max-width: 720px;
+    margin-left: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#detail-bag-title {
+    font-family: 'Playful Display', 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin-bottom: 0.5em;
+}
+
+#detail-bag-price {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    color: #111;
+    font-weight: 600;
+    margin-bottom: 1.2em;
+}
+
+#detail-bag-desc {
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: #222;
+    line-height: 1.6;
+    margin-bottom: 2.5em;
+}
+
+#detail-bag-actions {
+    display: flex;
+    gap: 1.5em;
+}
+
+#add-to-card-btn, #add-to-bag-btn {
+    display: inline-block;
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: #222;
+    background: #fff;
+    border: 1.5px solid var(--main-color);
+    padding: 0.6em 2.2em;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(157,82,72,0.08);
+}
+
+#add-to-card-btn:hover, #add-to-bag-btn:hover {
+    background: var(--main-color);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(157,82,72,0.18);
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    #detail-bag-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 3vw;
+    }
+    #detail-bag-image-container {
+        justify-content: center;
+        width: 100%;
+    }
+    #detail-bag-image {
+        max-width: 90vw;
+    }
+    #detail-bag-info {
+        max-width: 90vw;
+        text-align: center;
+        align-items: center;
+    }
+    #detail-bag-actions {
+        flex-direction: column;
+        gap: 1em;
+    }
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+}
+
+.popup-content.scrollable {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.popup-content h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #000;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8em;
+    line-height: 1.1;
+}
+
+.popup-content p {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    margin-bottom: 1.2em;
+}
+
+.popup-content input[type="number"] {
+    width: 60px;
+    padding: 0.3em;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-left: 0.5em;
+}
+
+.popup-content button {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.6em 1.8em;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.popup-content button:hover {
+    background: #7A3F36;
+}
+
+#close-cart-popup {
+    margin-top: 0.8em;
+    background: #ccc;
+    color: #000;
+}
+
+#close-cart-popup:hover {
+    background: #999;
+}
+
+#thank-you-popup .popup-content {
+    text-align: center;
+    padding: 2em;
+}
+
+#thank-you-popup h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive;
+    font-size: 2rem;
+    margin-bottom: 1em;
+    color: var(--main-color);
+}
+
+#thank-you-popup p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+    color: #444;
+}
+
+#return-home-btn {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.7em 2em;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#return-home-btn:hover {
+    background: #7A3F36;
+}
+
+#add-to-bag-popup .popup-content {
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+}
+
+#add-to-bag-popup .popup-content h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #000;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8em;
+    line-height: 1.1;
+}
+
+#add-to-bag-popup .popup-content p {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    margin-bottom: 1.2em;
+}
+
+#add-to-bag-popup .popup-content input[type="number"] {
+    width: 60px;
+    padding: 0.3em;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    text-align: center;
+    margin-left: 0.5em;
+}
+
+#add-to-bag-popup .popup-content button {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.6em 1.8em;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#add-to-bag-popup .popup-content button:hover {
+    background: #7A3F36;
+}
+
+#close-bag-popup {
+    margin-top: 0.8em;
+    background: #ccc;
+    color: #000;
+}
+
+#close-bag-popup:hover {
+    background: #999;
+}
+
+#success-bag-popup .popup-content {
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+}
+
+#success-bag-popup .popup-content h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--main-color);
+    margin-bottom: 0.8em;
+}
+
+#success-bag-popup .popup-content p {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    margin-bottom: 1.2em;
+    color: #444;
+}
+
+#success-bag-popup .popup-content button {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.6em 1.8em;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#success-bag-popup .popup-content button:hover {
+    background: #7A3F36;
+}

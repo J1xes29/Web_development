@@ -1,0 +1,410 @@
+/* Event page content */
+#event-main {
+    width: 100%;
+    max-width: 960px;
+    min-height: 100vh;
+    background: #fff;
+    padding-bottom: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#event-title-section {
+    width: 100%;
+    margin-top: 2.5vw;
+    margin-bottom: 2vw;
+    display: flex;
+    justify-content: center;
+}
+
+#event-title {
+    font-family: 'Times New Roman', Times, serif; /* Use Times New Roman font */
+    font-size: 2rem; /* Set font size */
+    color: var(--main-color); /* Use the main color */
+    border: 1.5px solid var(--main-color); /* Add border */
+    padding: 0.8em 1.5em; /* Reduce padding for spacing */
+    background: #fff; /* Background color */
+    font-weight: 400;
+    text-align: center;
+    margin: 0 auto; /* Center the title */
+    letter-spacing: 0.04em;
+    transition: box-shadow 0.2s;
+}
+
+#event-title:hover {
+    box-shadow: 0 4px 16px rgba(157,82,72,0.18); /* Add hover effect */
+}
+
+#event-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4vw;
+    margin-top: 2vw;
+    width: 100%;
+    /* Removed fade-in animation properties */
+}
+
+#event-image-container {
+    flex: 1 1 420px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+#event-main-image {
+    width: 100%;
+    max-width: 420px;
+    min-width: 240px;
+    aspect-ratio: 1/1.1;
+    object-fit: cover;
+    background: #eee;
+    border: none;
+    box-shadow: 0 2px 16px rgba(157,82,72,0.10);
+    transition: box-shadow 0.3s;
+}
+
+#event-main-image:hover {
+    box-shadow: 0 8px 32px rgba(157,82,72,0.18);
+}
+
+#event-info {
+    flex: 1 1 340px;
+    max-width: 420px;
+    margin-left: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#event-info-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.5rem;
+    color: #111;
+    font-weight: 600;
+    margin-bottom: 1.2em;
+    margin-top: 0;
+    letter-spacing: 0.01em;
+}
+
+#event-info-desc {
+    border: 1px solid var(--main-color);
+    padding: 1em 1.2em;
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: #222;
+    background: #fff;
+    margin-bottom: 2.5em;
+    line-height: 1.6;
+    transition: box-shadow 0.2s;
+}
+
+#event-register-btn {
+    display: inline-block;
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: #222;
+    background: #fff;
+    border: 1.5px solid var(--main-color);
+    padding: 0.6em 2.2em;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 0.5em;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(157,82,72,0.08);
+}
+
+#event-register-btn:hover, #event-register-btn:focus {
+    background: var(--main-color);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(157,82,72,0.18);
+    outline: none;
+}
+
+/* Popup styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 1.5em; /* Reduced padding */
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 320px; /* Reduced max width */
+    width: 90%;
+}
+
+.popup-content.scrollable {
+    max-height: 80vh; /* Limit height to make it scrollable */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.popup-content h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive; /* Match the header logo font */
+    font-size: 1.8rem; /* Slightly smaller font size */
+    font-weight: 400;
+    color: #000;
+    letter-spacing: 1.5px;
+    text-align: center;
+    margin-bottom: 0.8em; /* Reduced margin */
+    line-height: 1.1;
+    text-shadow: none;
+    transition: color 0.3s;
+}
+
+.popup-content p {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem; /* Slightly smaller font size */
+    margin-bottom: 1.2em; /* Reduced margin */
+}
+
+.popup-content label {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.popup-content input,
+.popup-content select {
+    width: 100%;
+    padding: 0.4em; /* Reduced padding */
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem; /* Slightly smaller font size */
+}
+
+.popup-content .terms {
+    text-align: left;
+    margin-bottom: 1em;
+}
+
+.popup-content button {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.6em 1.8em; /* Reduced padding */
+    font-family: 'Lora', serif;
+    font-size: 0.95rem; /* Slightly smaller font size */
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.popup-content button:hover {
+    background: #7A3F36;
+}
+
+#close-popup {
+    margin-top: 0.8em; /* Reduced margin */
+    background: #ccc;
+    color: #000;
+}
+
+#close-popup:hover {
+    background: #999;
+}
+
+#thank-you-popup .popup-content {
+    text-align: center;
+    padding: 2em;
+}
+
+#thank-you-popup h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive;
+    font-size: 2rem;
+    margin-bottom: 1em;
+    color: var(--main-color);
+}
+
+#thank-you-popup p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+    color: #444;
+}
+
+#return-home-btn {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.7em 2em;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#return-home-btn:hover {
+    background: #7A3F36;
+}
+
+/* Responsive styles for popup */
+@media (max-width: 768px) {
+    .popup-content {
+        padding: 1.5em;
+        max-width: 90%;
+    }
+
+    .popup-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .popup-content p {
+        font-size: 0.95rem;
+    }
+
+    .popup-content label {
+        font-size: 0.95rem;
+    }
+
+    .popup-content input,
+    .popup-content select {
+        font-size: 0.95rem;
+        padding: 0.4em;
+    }
+
+    .popup-content button {
+        font-size: 0.95rem;
+        padding: 0.6em 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 1em;
+    }
+
+    .popup-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .popup-content p {
+        font-size: 0.9rem;
+    }
+
+    .popup-content label {
+        font-size: 0.9rem;
+    }
+
+    .popup-content input,
+    .popup-content select {
+        font-size: 0.9rem;
+        padding: 0.3em;
+    }
+
+    .popup-content button {
+        font-size: 0.9rem;
+        padding: 0.5em 1.5em;
+    }
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 1200px) {
+    #event-main-image, #event-info {
+        max-width: 60vw;
+    }
+}
+
+@media (max-width: 900px) {
+    #event-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 3vw;
+        margin-top: 3vw;
+    }
+    #event-image-container {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 2vw;
+    }
+    #event-main-image,
+    #event-info {
+        max-width: 90vw;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #event-title-section {
+        margin-top: 5vw;
+        margin-bottom: 4vw;
+    }
+    #event-title {
+        font-size: 1.3rem;
+        padding: 0.5em 0.5em;
+    }
+    #event-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2vw;
+        margin-top: 3vw;
+    }
+    #event-image-container {
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 2vw;
+    }
+    #event-main-image,
+    #event-info {
+        max-width: 98vw;
+        min-width: 0;
+    }
+    #event-info-title {
+        font-size: 1.1rem;
+        text-align: center;
+        margin-bottom: 1em;
+    }
+    #event-info-desc {
+        font-size: 0.98rem;
+        padding: 0.8em 0.7em;
+        margin-bottom: 1.5em;
+        text-align: center;
+    }
+    #event-register-btn {
+        font-size: 1rem;
+        padding: 0.5em 1.5em;
+        margin-top: 0.5em;
+    }
+}
+
+/* iPhone-specific tweaks (portrait) */
+@media (max-width: 430px) {
+    #event-info-title {
+        font-size: 1rem;
+    }
+    #event-info-desc {
+        font-size: 0.9rem;
+    }
+    #event-register-btn {
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+    }
+}
+
+/* Accessibility focus */
+#event-register-btn:focus {
+    outline: 2px solid var(--main-color);
+    outline-offset: 2px;
+}
