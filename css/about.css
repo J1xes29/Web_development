@@ -1,0 +1,115 @@
+#about-main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-bottom: 3vw;
+    background: #fff;
+}
+
+#about-hero {
+    display: flex;
+    flex-direction: column; /* Stack image and text vertically */
+    align-items: center; /* Center align both image and text */
+    gap: 3em; /* Add spacing between image and text */
+    margin-top: 0; /* Remove the gap from the taskbar */
+    margin-bottom: 4vw; /* Keep the spacing below the hero section */
+}
+
+#about-hero-img-container {
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    align-items: center;
+    width: 100%;
+    margin-top: 2vw; /* Add margin to lower the image */
+}
+
+#about-hero-img {
+    width: 100%; /* Make the image take the full width */
+    max-width: none; /* Remove any maximum width constraint */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the full width */
+    margin: 0; /* Remove any margin */
+    background: #eee;
+    border: none;
+    box-shadow: 0 2px 16px rgba(157,82,72,0.10);
+    transition: box-shadow 0.3s;
+}
+
+#about-hero-img:hover {
+    box-shadow: 0 8px 32px rgba(157,82,72,0.18);
+}
+
+#about-hero-desc {
+    margin-top: 2vw; /* Adjust spacing to keep the text aligned properly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#about-desc-box {
+    border: 1px solid var(--main-color);
+    padding: 1em 1.2em;
+    font-family: 'Lora', serif;
+    font-size: 1.05rem;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
+    transition: box-shadow 0.2s;
+    min-width: 220px; /* Minimum width of the box */
+    max-width: 600px; /* Adjust the maximum width as needed */
+    text-align: center; /* Center text inside the box */
+    margin: 0 auto; /* Center the box horizontally */
+    padding-top: 1em; /* Adjust padding to align text properly */
+    padding-bottom: 1em; /* Ensure consistent spacing */
+}
+
+#about-desc-box strong {
+    font-family: 'Playful Display', 'Playfair Display', serif;
+    font-size: 1.1em;
+    color: #9D5248;
+    letter-spacing: 0.01em;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 900px) {
+    #about-main {
+        max-width: 100vw;
+        padding: 0 2vw;
+    }
+    #about-hero {
+        flex-direction: column;
+        align-items: center;
+        gap: 2vw;
+    }
+    #about-hero-img-container,
+    #about-hero-desc {
+        max-width: 95vw;
+        margin-left: 0;
+        justify-content: center;
+    }
+    #about-desc-box {
+        max-width: 95vw;
+        min-width: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    #about-main {
+        padding: 0 1vw;
+    }
+    #about-hero-img {
+        max-width: 98vw;
+    }
+    #about-desc-box {
+        font-size: 0.98rem;
+        padding: 0.8em 0.7em;
+    }
+}
+
+/* Accessibility focus */
+#about-desc-box:focus {
+    outline: 2px solid var(--main-color);
+    outline-offset: 2px;
+}

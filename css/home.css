@@ -1,0 +1,313 @@
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5vw 3vw;
+    gap: 6vw;
+    flex-wrap: wrap;
+}
+
+/* Hero image and text luxury styling */
+#hero-image img {
+    max-width: 40vw;
+    width: 100%;
+    min-width: 220px;
+    border: none;
+    box-shadow: 0 8px 32px rgba(157,82,72,0.10), 0 1.5px 8px rgba(0,0,0,0.04);
+    display: block;
+    margin: 0 auto;
+    height: auto;
+    border-radius: 0 em;
+    transition: box-shadow 0.3s;
+}
+
+#hero-image img:hover {
+    box-shadow: 0 12px 36px rgba(157,82,72,0.18), 0 2px 12px rgba(0,0,0,0.08);
+}
+
+#hero-text {
+    max-width: 40vw;
+    min-width: 220px;
+    margin-left: 0;
+    text-align: center;
+}
+
+#hero-text h2 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2.1rem;
+    margin-bottom: 1.25rem;
+    color: #9D5248;
+    text-shadow: 0 1px 6px rgba(157,82,72,0.07);
+}
+
+#hero-text p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.btn, .shop-btn {
+    background: linear-gradient(90deg, #9D5248 60%, #7A3F36 100%);
+    color: #fff;
+    border: none;
+    border-radius: 0em;
+    padding: 0.7em 2em;
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(157,82,72,0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover, .shop-btn:hover {
+    background: linear-gradient(90deg, #7A3F36 60%, #9D5248 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(157,82,72,0.18);
+}
+
+#collection {
+    text-align: center;
+    padding: 3vw 2vw;
+}
+
+/* Collection grid luxury look */
+.collection-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    flex-wrap: wrap;
+}
+
+.collection-grid img {
+    max-width: 28vw;
+    min-width: 180px;
+    width: 100%;
+    border: 0.13rem solid #9D5248;
+    border-radius: 0em;
+    box-shadow: 0 2px 12px rgba(157,82,72,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    height: auto; /* Make sure images keep their aspect ratio */
+    object-fit: contain; /* Prevent images from being cropped */
+}
+
+.collection-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(157,82,72,0.18);
+}
+
+/* Responsive adjustments for desktop, tablet, and mobile */
+@media (max-width: 1200px) {
+    #hero-image img, #hero-text {
+        max-width: 60vw;
+    }
+    .collection-grid img {
+        max-width: 40vw;
+    }
+}
+
+@media (max-width: 900px) {
+    #hero {
+        flex-direction: column;
+        gap: 3vw;
+        padding: 7vw 2vw;
+    }
+    #hero-image img,
+    #hero-text {
+        max-width: 90vw;
+        min-width: 0;
+    }
+    .collection-grid {
+        flex-direction: column;
+        gap: 3vw;
+    }
+    .collection-grid img {
+        max-width: 90vw;
+        min-width: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    #hero {
+        padding: 5vw 1vw;
+        gap: 2vw;
+    }
+    #hero-image img,
+    #hero-text {
+        max-width: 98vw;
+    }
+    .collection-grid img {
+        max-width: 98vw;
+    }
+    #hero-text h2 {
+        font-size: 1.2rem;
+    }
+    #hero-text p {
+        font-size: 1rem;
+    }
+    .btn, .shop-btn {
+        font-size: 1rem;
+        padding: 0.5em 1.2em;
+    }
+}
+
+/* iPhone-specific tweaks (portrait) */
+@media (max-width: 430px) {
+    #hero-text h2 {
+        font-size: 1rem;
+    }
+    #hero-text p {
+        font-size: 0.9rem;
+    }
+    .btn, .shop-btn {
+        font-size: 0.9rem;
+        padding: 0.4em 0.8em;
+    }
+}
+
+/* Accessibility: focus styles */
+a:focus, button:focus, .btn:focus {
+    outline: 2px solid #9D5248;
+    outline-offset: 2px;
+}
+
+/* Profile popup and thank-you popup styles */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 1.5em;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 320px;
+    width: 90%;
+}
+
+.popup-content.scrollable {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.popup-content h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #000;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.8em;
+    line-height: 1.1;
+}
+
+.popup-content p {
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    margin-bottom: 1.2em;
+}
+
+.popup-content label {
+    display: block;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    margin-bottom: 0.5em;
+    text-align: left;
+}
+
+.popup-content input {
+    width: 100%;
+    padding: 0.4em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+}
+
+.popup-content .terms {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+    gap: 0.5em; /* Add spacing between checkbox and label */
+    text-align: center; /* Center text */
+    margin-bottom: 1em;
+}
+
+.popup-content .terms input[type="checkbox"] {
+    margin: 0; /* Remove default margin */
+    width: auto; /* Ensure checkbox size is consistent */
+    height: auto;
+}
+
+.popup-content button {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.6em 1.8em;
+    font-family: 'Lora', serif;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.popup-content button:hover {
+    background: #7A3F36;
+}
+
+#close-profile-popup {
+    margin-top: 0.8em;
+    background: #ccc;
+    color: #000;
+}
+
+#close-profile-popup:hover {
+    background: #999;
+}
+
+#thank-you-popup .popup-content {
+    text-align: center;
+    padding: 2em;
+}
+
+#thank-you-popup h2 {
+    font-family: 'Italianno', 'Brush Script MT', cursive;
+    font-size: 2rem;
+    margin-bottom: 1em;
+    color: var(--main-color);
+}
+
+#thank-you-popup p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    margin-bottom: 1.5em;
+    color: #444;
+}
+
+#return-home-btn {
+    background: var(--main-color);
+    color: #fff;
+    border: none;
+    padding: 0.7em 2em;
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#return-home-btn:hover {
+    background: #7A3F36;
+}
