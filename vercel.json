@@ -6,10 +6,6 @@
     {
       "source": "/",
       "destination": "/home.html"
-    },
-    {
-      "source": "/css/:path*",
-      "destination": "/:path*"
     }
   ]
 }

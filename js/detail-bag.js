@@ -1,99 +1,93 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const addToCartBtn = document.getElementById('add-to-card-btn');
-    const addToBagBtn = document.getElementById('add-to-bag-btn');
-    const cartPopup = document.getElementById('add-to-cart-popup');
-    const bagPopup = document.getElementById('add-to-bag-popup');
-    const successPopup = document.getElementById('success-bag-popup');
-    const thankYouPopup = document.getElementById('thank-you-popup');
-    const closeCartPopupBtn = document.getElementById('close-cart-popup');
-    const closeBagPopupBtn = document.getElementById('close-bag-popup');
-    const closeSuccessPopupBtn = document.getElementById('close-success-bag-popup');
-    const returnHomeBtn = document.getElementById('return-home-btn');
+document.addEventListener('DOMContentLoaded', function() {
+    const getElement = function(id) {
+        return document.getElementById(id);
+    };
 
-    // Show add to cart popup
-    if (addToCartBtn) {
-        addToCartBtn.addEventListener('click', function () {
-            cartPopup.classList.remove('hidden');
-        });
-    }
+    const openPopup = function(buttonId, popupId) {
+        const button = getElement(buttonId);
+        const popup = getElement(popupId);
 
-    // Show add to bag popup
-    if (addToBagBtn) {
-        addToBagBtn.addEventListener('click', function () {
-            bagPopup.classList.remove('hidden');
-        });
-    }
+        if (button && popup) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                popup.classList.remove('hidden');
+            });
+        }
+    };
 
-    // Close add to cart popup
-    if (closeCartPopupBtn) {
-        closeCartPopupBtn.addEventListener('click', function () {
-            cartPopup.classList.add('hidden');
-        });
-    }
+    const closePopup = function(buttonId, popupId) {
+        const button = getElement(buttonId);
+        const popup = getElement(popupId);
 
-    // Close add to bag popup
-    if (closeBagPopupBtn) {
-        closeBagPopupBtn.addEventListener('click', function () {
-            bagPopup.classList.add('hidden');
-        });
-    }
+        if (button && popup) {
+            button.addEventListener('click', function() {
+                popup.classList.add('hidden');
+            });
+        }
+    };
 
-    // Show success popup after adding to bag
-    const confirmBagBtn = document.getElementById('confirm-bag-btn');
-    if (confirmBagBtn) {
-        confirmBagBtn.addEventListener('click', function () {
+    openPopup('add-to-card-btn', 'add-to-cart-popup');
+    openPopup('add-to-bag-btn', 'add-to-bag-popup');
+    closePopup('close-cart-popup', 'add-to-cart-popup');
+    closePopup('close-bag-popup', 'add-to-bag-popup');
+    closePopup('close-success-bag-popup', 'success-bag-popup');
+
+    const confirmBagButton = getElement('confirm-bag-btn');
+    const bagPopup = getElement('add-to-bag-popup');
+    const successPopup = getElement('success-bag-popup');
+    if (confirmBagButton && bagPopup && successPopup) {
+        confirmBagButton.addEventListener('click', function() {
             bagPopup.classList.add('hidden');
             successPopup.classList.remove('hidden');
         });
     }
 
-    // Close success popup
-    if (closeSuccessPopupBtn) {
-        closeSuccessPopupBtn.addEventListener('click', function () {
-            successPopup.classList.add('hidden');
+    const orderButton = getElement('order-btn');
+    const cartPopup = getElement('add-to-cart-popup');
+    const thankYouPopup = getElement('thank-you-popup');
+    if (orderButton && cartPopup && thankYouPopup) {
+        orderButton.addEventListener('click', function() {
+            cartPopup.classList.add('hidden');
+            thankYouPopup.classList.remove('hidden');
         });
     }
 
-    // Close thank you popup and return to home
-    if (returnHomeBtn) {
-        returnHomeBtn.addEventListener('click', function () {
-            thankYouPopup.classList.add('hidden');
+    const returnHomeButton = getElement('return-home-btn');
+    if (returnHomeButton) {
+        returnHomeButton.addEventListener('click', function() {
             window.location.href = 'home.html';
         });
     }
+
+    const priceElement = getElement('detail-bag-price');
+    const price = priceElement
+        ? Number.parseFloat(priceElement.textContent.replace(/[^0-9.]/g, ''))
+        : Number.NaN;
+
+    if (!Number.isFinite(price)) {
+        return;
+    }
+
+    [
+        ['cart-quantity', 'cart-total'],
+        ['bag-quantity', 'bag-total']
+    ].forEach(function(ids) {
+        const quantityInput = getElement(ids[0]);
+        const totalElement = getElement(ids[1]);
+
+        if (!quantityInput || !totalElement) {
+            return;
+        }
+
+        const updateTotal = function() {
+            const quantity = Math.max(1, Number.parseInt(quantityInput.value, 10) || 1);
+            quantityInput.value = String(quantity);
+            totalElement.textContent = '$' + (price * quantity).toLocaleString('en-US', {
+                maximumFractionDigits: 2
+            });
+        };
+
+        quantityInput.addEventListener('input', updateTotal);
+        updateTotal();
+    });
 });
-
-// Update total price in the cart
-document.getElementById('cart-quantity').addEventListener('input', function() {
-    updateCartTotal();
-});
-
-function updateCartTotal() {
-    const quantity = parseInt(document.getElementById('cart-quantity').value) || 1;
-    const price = 2500; // Price of the item
-    const total = quantity * price;
-    document.getElementById('cart-total').textContent = `$${total}`;
-}
-
-// Show thank-you popup after ordering
-document.getElementById('order-btn').addEventListener('click', function() {
-    document.getElementById('add-to-cart-popup').classList.add('hidden');
-    document.getElementById('thank-you-popup').classList.remove('hidden');
-});
-
-// Close thank-you popup and return to home
-document.getElementById('return-home-btn').addEventListener('click', function() {
-    window.location.href = 'home.html';
-});
-
-// Update total price in the bag
-document.getElementById('bag-quantity').addEventListener('input', function() {
-    updateBagTotal();
-});
-
-function updateBagTotal() {
-    const quantity = parseInt(document.getElementById('bag-quantity').value) || 1;
-    const price = 2500; // Price of the item
-    const total = quantity * price;
-    document.getElementById('bag-total').textContent = `$${total}`;
-}

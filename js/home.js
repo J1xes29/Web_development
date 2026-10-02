@@ -1,43 +1,58 @@
-// Show profile popup when profile icon is clicked
-document.querySelector('.header-icon.profile a').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('profile-popup').classList.remove('hidden');
-});
+const profilePopup = document.getElementById('profile-popup');
+const profileLink = document.querySelector('.header-icon.profile a');
+const closeProfileButton = document.getElementById('close-profile-popup');
 
-// Close profile popup
-document.getElementById('close-profile-popup').addEventListener('click', function() {
-    document.getElementById('profile-popup').classList.add('hidden');
-});
+if (window.location.hash === '#profile-popup' && profilePopup) {
+    profilePopup.classList.remove('hidden');
+}
 
-// Handle login validation
-document.getElementById('login-btn').addEventListener('click', function() {
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
+if (profileLink && profilePopup) {
+    profileLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        profilePopup.classList.remove('hidden');
+    });
+}
 
-    let errors = [];
+if (closeProfileButton && profilePopup) {
+    closeProfileButton.addEventListener('click', function() {
+        profilePopup.classList.add('hidden');
+    });
+}
 
-    if (email === '' || !email.includes('@')) {
-        errors.push('A valid Email is required.');
-    }
-    if (password === '') {
-        errors.push('Password is required.');
-    }
+const loginButton = document.getElementById('login-btn');
+if (loginButton && profilePopup) {
+    loginButton.addEventListener('click', function() {
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errors = [];
 
-    if (errors.length > 0) {
-        alert(errors.join('\n'));
-    } else {
-        alert('Login successful!');
-        document.getElementById('profile-popup').classList.add('hidden');
-    }
-});
+        if (email === '' || !email.includes('@')) {
+            errors.push('A valid Email is required.');
+        }
+        if (password === '') {
+            errors.push('Password is required.');
+        }
 
-// Handle registration link
-document.getElementById('register-link').addEventListener('click', function(e) {
-    e.preventDefault();
-    alert('Redirecting to registration form...');
-});
+        if (errors.length > 0) {
+            alert(errors.join('\n'));
+        } else {
+            alert('Login successful!');
+            profilePopup.classList.add('hidden');
+        }
+    });
+}
 
-// Close thank-you popup and return to home
-document.getElementById('return-home-btn').addEventListener('click', function() {
-    window.location.href = 'home.html';
-});
+const registerLink = document.getElementById('register-link');
+if (registerLink) {
+    registerLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        alert('Redirecting to registration form...');
+    });
+}
+
+const returnHomeButton = document.getElementById('return-home-btn');
+if (returnHomeButton) {
+    returnHomeButton.addEventListener('click', function() {
+        window.location.href = 'home.html';
+    });
+}

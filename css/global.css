@@ -1,25 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&family=Lora:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
-/* Playful Display fallback to Playfair Display for demo */
-@font-face {
-    font-family: 'Playful Display';
-    src: local('Playfair Display'), url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Lora';
-    src: local('Lora'), url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
-    font-display: swap;
-}
-
-/* Times New Roman fallback */
-@font-face {
-    font-family: 'Times New Roman';
-    src: local('Times New Roman'), local('TimesNewRoman'), local('Times');
-    font-display: swap;
-}
-
 :root {
     --main-color: #9D5248;
     --background-color: #FFFFFF;
